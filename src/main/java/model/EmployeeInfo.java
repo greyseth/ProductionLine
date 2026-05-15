@@ -14,8 +14,11 @@ public class EmployeeInfo {
 
     public EmployeeInfo() {
         scanner = new Scanner(System.in);
-        setName();
+        name = new StringBuilder("");
         p = Pattern.compile("[A-Z][a-z]{3}[0-9]{2}");
+
+        setName();
+        setDeptId();
     }
 
     public StringBuilder getName() {
@@ -28,6 +31,7 @@ public class EmployeeInfo {
 
     private void setName() {
         String input = inputName();
+        name.setLength(0);
         name.append(input);
         createEmployeeCode(name);
     }
@@ -44,6 +48,7 @@ public class EmployeeInfo {
     }
 
     private String inputName() {
+        System.out.println("Enter Employee Name: ");
         String s = scanner.nextLine();
         return s;
     }
@@ -57,11 +62,12 @@ public class EmployeeInfo {
     }
 
     public void setDeptId() {
+        System.out.println("Enter Department Id: ");
         String id = scanner.nextLine();
         if (validId(id)) {
-            deptId = reverseString(id); 
-        }else {
-            deptId = "None01";
+            deptId = reverseString(id);
+        } else {
+            deptId = reverseString("None01");
         }
     }
 
@@ -69,7 +75,7 @@ public class EmployeeInfo {
         return p.matcher(id).matches();
     }
 
-    public String reverseString(String str) {
+    String reverseString(String str) {
         return new StringBuilder(str).reverse().toString();
     }
 

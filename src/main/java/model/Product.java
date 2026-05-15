@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 
 abstract public class Product implements Item, Comparable<Product> {
+
     public static int currentProductionNumber = 0;
 
     int serialNumber;
@@ -20,12 +21,12 @@ abstract public class Product implements Item, Comparable<Product> {
 
     @Override
     public void setProductionNumber(int productionNumber) {
-
+        this.serialNumber = productionNumber;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
@@ -45,7 +46,7 @@ abstract public class Product implements Item, Comparable<Product> {
 
     @Override
     public String toString() {
-        return "Manufacturer : "+Item.MANUFACTURER+"\nSerial Number : "+serialNumber+"\nDate : "+manufacturedOn.toString()+"\nName : "+name;
+        return "Manufacturer : " + Item.MANUFACTURER + "\nSerial Number : " + serialNumber + "\nDate : " + manufacturedOn.toString() + "\nName : " + name;
     }
 
     @Override
