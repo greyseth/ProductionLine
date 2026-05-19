@@ -8,8 +8,11 @@ public class AudioPlayer extends Product implements MultimediaControls{
 
     public AudioPlayer(String name, String audioSpecification) {
         super(name);
+        super.setProductType("Audio Player");
         this.audioSpecification = audioSpecification;
         mediaType = ItemType.AU;
+
+        super.classification = this.toString();
     }
 
     @Override

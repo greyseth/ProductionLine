@@ -1,14 +1,19 @@
 package model;
 
-public class Screen implements ScreenSpec{
+public class Screen extends Product implements ScreenSpec{
     String resolution;
     int refreshRate;
     int responseTime;
 
     public Screen(String resolution, int refreshRate, int responseTime) {
+        super("Screen");
+        super.setProductType("Screen");
+        super.setName("Monitor "+resolution);
         this.resolution = resolution;
         this.refreshRate = refreshRate;
         this.responseTime = responseTime;
+
+        super.classification = this.toString();
     }
 
     @Override

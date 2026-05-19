@@ -10,13 +10,17 @@ abstract public class Product implements Item, Comparable<Product> {
     String manufacturer;
     Date manufacturedOn;
     String name;
+    String productType;
+    String classification;
 
     public Product(String name) {
         this.name = name;
         this.serialNumber = currentProductionNumber;
         this.manufacturedOn = new Date();
 
-        currentProductionNumber++;
+        Product.currentProductionNumber++;
+
+        classification = toString();
     }
 
     @Override
@@ -31,7 +35,7 @@ abstract public class Product implements Item, Comparable<Product> {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
@@ -41,7 +45,19 @@ abstract public class Product implements Item, Comparable<Product> {
 
     @Override
     public int getSerialNumber() {
-        return 0;
+        return serialNumber;
+    }
+
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
+    public String getClassification() {
+        return classification;
     }
 
     @Override
